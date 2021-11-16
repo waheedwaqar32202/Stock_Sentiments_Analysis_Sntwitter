@@ -423,7 +423,7 @@ if __name__ == '__main__':
 
 # Yesterday End
 
-#Stock Prediction
+"""#Stock Prediction
     pred_value = []
     for stock in stock_list:
         file_name = str(stock) + "_monthly.csv"
@@ -443,4 +443,4 @@ if __name__ == '__main__':
     prediction = pd.DataFrame(list(zip(stock_list, pred_value)), columns=['Stock', 'Next Day Prediction'])
     prediction.to_csv('Prediction.csv')
     print("Done--->  Prediction is saved into Prediction.csv file ")
-    print("Sentiments Analysis Completed")
+    print("Sentiments Analysis Completed")"""
