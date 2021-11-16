@@ -23,7 +23,7 @@ class TwitterSensor:
         tweets_list2 = []
         # Using TwitterSearchScraper to scrape data and append tweets to list
         for i, tweet in enumerate(
-                sntwitter.TwitterSearchScraper(keyword+' near:"US" since:2021-11-11 until:'+today_date).get_items()):
+                sntwitter.TwitterSearchScraper(keyword+' near:"US" since:'+start_date+' until:'+today_date).get_items()):
 
             tweets_list2.append([tweet.date, tweet.id, tweet.content, tweet.user.username])
 
