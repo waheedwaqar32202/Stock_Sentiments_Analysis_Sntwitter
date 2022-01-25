@@ -1,0 +1,12 @@
+nltk
+pandas
+TextBlob
+newsapi-python
+praw
+youtube-easy-api
+numpy
+matplotlib
+xgboost
+openpyxl
+Jinja2
+#pip3 install git+https://github.com/JustAnotherArchivist/snscrape.git

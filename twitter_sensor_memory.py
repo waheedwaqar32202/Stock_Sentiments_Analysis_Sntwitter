@@ -11,19 +11,20 @@ from datetime import timedelta
 from textblob import TextBlob
 import string
 from datetime import datetime
-# twint libraries
-import twint
+
 import snscrape.modules.twitter as sntwitter
 class TwitterSensor:
     def FetchSensorData(self, keyword):
         today_date = datetime.now()
         today_date = datetime.strftime(today_date, '%Y-%m-%d')
-        start_date = datetime.now() - timedelta(2)
+        start_date = datetime.now() - timedelta(13)
         start_date = datetime.strftime(start_date, '%Y-%m-%d')
         tweets_list2 = []
         # Using TwitterSearchScraper to scrape data and append tweets to list
+        key = keyword + " stock"
+        print(key)
         for i, tweet in enumerate(
-                sntwitter.TwitterSearchScraper(keyword+' near:"US" since:'+start_date+' until:'+today_date).get_items()):
+                sntwitter.TwitterSearchScraper(key+' near:"US" since:'+start_date+' until:'+today_date).get_items()):
 
             tweets_list2.append([tweet.date, tweet.id, tweet.content, tweet.user.username])
 

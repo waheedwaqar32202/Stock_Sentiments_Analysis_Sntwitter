@@ -11,8 +11,6 @@ sys.setrecursionlimit(1500)
 # Data Preprocessing and Feature Engineering
 from textblob import TextBlob
 import string
-# twint libraries
-import twint
 
 
 # newapi libraries
@@ -35,7 +33,8 @@ class RedditSensor:
         posts = []
         keyword = str(keyword).lower()
         # scrapped data from reddit using reddit api
-        for post in self.reddit.subreddit("all").search(keyword):
+        key = keyword + " stock"
+        for post in self.reddit.subreddit("all").search(key):
             date_type = type(post.created)
             date = datetime.fromtimestamp(post.created).strftime('%Y-%m-%d %H:%M:%S') \
                 if date_type == int or date_type == float else post.created
@@ -51,7 +50,6 @@ class RedditSensor:
                       'ups': post.ups, 'downs': post.downs,
                       'keyword': keyword}
             posts.append(record)
-
         return pd.DataFrame(posts)
 
     def dataCleaning(self, text):
@@ -88,7 +86,6 @@ class RedditSensor:
             posts.append(post)
 
         posts = pd.concat(posts, ignore_index=True)
-
         return posts
 # main method
 if __name__ == '__main__':

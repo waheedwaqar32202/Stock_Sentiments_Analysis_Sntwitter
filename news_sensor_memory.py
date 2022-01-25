@@ -27,9 +27,9 @@ class NewsSensor:
         return date.strftime('%Y-%m-%d %H:%M:%S')
 
     def FetchSensorData(self, keyword) -> pd.DataFrame:
-        all_articles = self.newsapi.get_everything(q=keyword, from_param=self.last_month_date,
-                                      to=self.current_date,
-                                      language='en')
+
+        key = keyword + " stock"
+        all_articles = self.newsapi.get_everything(q=key, language='en')
 
         articles = all_articles['articles']
         news_data = pd.DataFrame(articles)

@@ -9,8 +9,7 @@ sys.setrecursionlimit(1500)
 # Data Preprocessing and Feature Engineering
 from textblob import TextBlob
 import string
-# twint libraries
-import twint
+
 
 from datetime import datetime
 # youtube api
@@ -25,7 +24,8 @@ class YouTubeSensor:
 
     def FetchSensorData(self, keyword) -> pd.DataFrame:
         # start code
-        req = self.Youtube.search().list(q=keyword, part='snippet', type='video', maxResults=10000)
+        key = keyword + " stock"
+        req = self.Youtube.search().list(q=key, part='snippet', type='video', maxResults=10000)
         res = req.execute()
 
         title = []
